@@ -1,0 +1,50 @@
+ <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="SelectedId" #show  >
+    <option selected value="0">Open this select menu</option>
+    <option *ngFor="let item of category" [value]="item.id">
+        {{item.name}}
+    </option>
+    
+  </select>  -->
+<app-products [SelCatID]="SelectedId"
+(OnAddtoCart)="AddToCart($event)"
+> 
+</app-products>
+<hr>
+<table  class="table table-hover" >
+    <thead>
+        <tr>
+           <!--  <th scope="col">Id</th> -->
+           <!--  <th scope="col">ID</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+           
+            <th scope="col">Remove</th>
+            
+            
+          </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let item of ArryCart" > 
+            <!--  <td >{{item.Id }}</td>  -->
+             <td >{{item.productName }}</td>
+             <td >{{item.count }}</td>
+             <td >{{item.productprice }}</td>
+             <td >{{item.productprice * item.count}}</td>
+             <td >
+            <button type="button" class="btn btn-dark btn-block" role="button" (click) ="Remove()">Remove</button>
+
+             </td>
+
+             
+          </tr>  
+    </tbody>
+   
+</table> 
+<div class="border p-4 text-center">
+    <h4 class="text-center">Total Price {{totalAmount | currency}} </h4>
+<button type="button" class="btn btn-dark" style="width:140px" role="button" (click)="buy()">Order</button>
+
+</div>
+<br>

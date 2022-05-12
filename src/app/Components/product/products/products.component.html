@@ -1,0 +1,103 @@
+<h1>Store Name : {{store.Name}}</h1>
+<img [src]="store.Logo" alt="logo" style="height: 100px; width: 100px;">
+<h3>{{date|date}}</h3>
+ <!-- <select class="form-select dropdown-toggle" #product (change)=" showProd(product.value)" >
+    <option *ngFor="let item of category" [value]="item.ID" >
+        {{item.Name}}
+    </option>
+</select>  -->
+  <!-- <table *ngIf="isTableShowen" class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Count</th>
+        <th scope="col">Add to Cart</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of NewProductList" [style.background-color]="(item.quantity==1)? 'yellow':'lightgray'">
+        <ng-container *ngIf="item.quantity!=0">
+        
+        <td>{{item.id}}</td> 
+        <td>{{item.name}}</td>
+        <td> <img [src]="item.img" class="card-img-top" style="height: 50px; width: 50px;"></td>
+          <td>{{item.price | currency}}</td>
+          <td>{{item.quantity}}</td>
+          
+          <td>
+            <input type="number" style="width: 70px;" class="form-control" #itemsCount>
+          </td>
+          <td>
+            <button type="button" class="btn btn-dark btn-block" role="button" [value]="itemsCount.value" (click)="OnAddcart(item,+itemsCount.value)" >Add</button>
+
+          </td>
+          <td><button type="button" class="btn btn-primary" (click)="DecreaseQuantity(item)">Buy</button></td>
+        </ng-container>
+      </tr>
+      
+     
+    </tbody>
+  </table> -->
+  <!-- <input type="text" class="form-control" [(ngModel)]="ClientName">
+  <div *ngIf="isPurshased">
+      thanks for purchase {{ClientName}}
+  </div>
+  <button type="button" class="btn btn-primary" (click)="toggletable()">Buy</button> -->
+
+  <div class="container">
+    <div class="row row-cols-4 p-4  m-2" >
+      <ng-container *ngFor="let item of NewProductList ">
+      <div class="col p-2 m-2" style="width: 260px;"  *ngIf="item.quantity!=0">
+        <img src="{{item.img}}" (click)="openPopDialog(item.id)" class="card-img-top" alt="..." >
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <p class="card-text">
+            <span class="p-2">Quantity : {{item.quantity}}</span><br> 
+            <span class="p-2">Price: {{item.price| currency: 'EGP'}}</span> 
+          </p>
+         
+        </div>
+      </div>
+    </ng-container>
+    </div>
+  </div>
+
+  <!-- <div CardDesiegn class="card" backColor="blue" style="width: 18rem;" *ngFor="let item of NewProductList">
+    <img [src]="item.img" class="card-img-top" style="height: 200px; width: 270px;">
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">{{item.price |currency }}</p>
+      <p class="card-text">{{item.quantity}}</p>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+    </div>
+  </div>
+  <section style="background-color: #eee;">
+    <div class="container py-5 ml-auto my-4">
+        <input type="text" class="form-control" placeholder="Enter  your id number" [(ngModel)]="idNumber">
+        <select [(ngModel)]="selectOptionDate" class="form-control">
+            <option>full</option>
+            <option>year</option>
+            <option>month</option>
+            <option>day</option>
+        </select>
+    </div>
+    <div [ngSwitch]="selectOptionDate">
+        <div *ngSwitchCase="'full'">{{idNumber|nationalID|date}}</div>
+        <div *ngSwitchCase="'year'">{{idNumber|nationalID|date :"YYYY"}}</div>
+        <div *ngSwitchCase="'month'">{{idNumber|nationalID|date :"MM"}}</div>
+        <div *ngSwitchCase="'day'">{{idNumber|nationalID|date :"dd"}}</div>
+    </div>
+</section>
+<section style="background-color: #eee;">
+  <div class="container py-5 ml-auto my-4">
+      <input type="text" class="form-control" placeholder="Enter  your id number" [(ngModel)]="cridet">
+     
+  </div>
+  <div>{{cridet|cridtcard}}</div>
+</section> -->
+  
